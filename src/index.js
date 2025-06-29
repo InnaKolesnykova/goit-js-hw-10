@@ -1,7 +1,6 @@
 import Notiflix from 'notiflix';
 import SlimSelect from 'slim-select';
 import { fetchBreeds, fetchCatByBreed, fetchImg } from "./helper/cat-api";
-import { TheCatAPI } from "@thatapicompany/thecatapi";
 import axios from "axios";
 
 const API_KEY = "live_SU4QHYgUYTBbiOFg5QyDurIUW9f37I7sy836qGATvXSWir1RtEdcO9YTnspO0K4x";
