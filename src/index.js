@@ -11,7 +11,7 @@ axios.defaults.headers.common["x-api-key"] = API_KEY;
 const loader = document.querySelector(".loader");
 const selector = document.querySelector(".breed-select");
 const errMessage = document.querySelector(".error");
-const catInfo = document.querySelector("div");
+const catInfo = document.querySelector(".cat-info");
 
 function showLoader() {
     loader.classList.remove("invisible");
@@ -70,7 +70,7 @@ fetchBreeds()
 function createMarkup(breedOpt) {
     return breedOpt
         .map(({ url, breeds: [{ name, description, temperament }] }) =>
-            `<img src="${url}" alt="" height="250px"/>
+            `<img src="${url}" alt="${name}" height="250px"/>
         <div>
             <h2 class="cat-breed">${name}</h2>
             <p class="cat-desc">${description}</p>
@@ -105,20 +105,6 @@ selector.addEventListener('change', () => {
     
     hideCatInfo();
     hideSelector();
-});
-
-selector.addEventListener('load', () => {
-    try {
-        hideSelector();
-        showLoader();
-        loader.classList.toggle("invisible");
-    } catch {
-        hideSelector();
-        showLoader();
-        Notiflix.Notify.failure('Sorry! ' + errMessage.textContent);
-        errMessage.classList.toggle("invisible");
-        console.error;
-    }
 });
 
 export { hideSelector, showSelector };
